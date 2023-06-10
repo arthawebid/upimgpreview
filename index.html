@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preview IMG before Upload</title>
+    <style>
+        .upcenter{
+            display:flex;
+            justify-content: center;
+        }
+        img{
+            outline: dashed 1px black;
+            width: 360px;
+        }
+    </style>
+</head>
+<body>
+    <div class="upcenter">
+        <div>
+            <img src="images/choose.png" id="preview">
+        </div>
+    </div>
+    <div class="upcenter">
+        <div>
+            <input type="file" id="fl" accept="image/*" width="360">
+        </div>
+    </div>
+    <script>
+        let prev = document.getElementById("preview");
+        let inf = document.getElementById("fl");
+
+        inf.onchange = (e) =>{
+            console.log(inf);
+            prev.src = URL.createObjectURL(inf.files[0]);
+        }
+    </script>
+</body>
+</html>
